@@ -11,7 +11,7 @@ function runEventListeners(){
 }
 
 function getStarted(){
-    window.location.href = "../app/index.html";
+    window.location.href = "app/index.html";
 }
 function buyMeACoffee(){
     window.location.href = "https://buymeacoffee.com/hasanhuseyinsenay";
