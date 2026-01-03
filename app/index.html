@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librasave</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script> 
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>-->
+    <script src="https://unpkg.com/docx@7.8.2/build/index.js"></script>
+    <script src="../translations.js"></script>
+    <script src="../main.js" defer type="module"></script>
+    <script src="app.js" type="module"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="panel">
+            <div id="topbar">
+                <div id="logo"><img src="../images/logo.png" alt="" width="200" height="50"></div>
+                <header><h1 data-i18n="library_name">Your Library</h1></header>
+                <div id="account">
+                    <div>
+                        <img id="pp" src="" alt="" width="60" height="60">
+                    </div>
+                    <div id="accountinfo">
+                        <!--<span>Hasan Hüseyin Şenay</span>-->
+                        <span id="userName"></span>
+                        <span id="userEmail"></span>
+                        <button id="login" class="btn" type="button">Login with Google</button>
+                    </div>
+                    <div id="languageSelector">
+                        <select id="languageSelect" class="btn">
+                            <option value="en">🇬🇧 English</option>
+                            <option value="tr">🇹🇷 Türkçe</option>
+                            <option value="az">🇦🇿 Azərbaycan</option>
+                            <option value="fr">🇫🇷 Français</option>
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="pt">🇵🇹 Português</option>
+                            <option value="it">🇮🇹 Italiano</option>
+                            <option value="de">🇩🇪 Deutsch</option>
+                            <option value="ru">🇷🇺 Русский</option>
+                            <option value="uk">🇺🇦 Українка</option>
+                            <option value="pl">🇵🇱 Polski</option>
+                            <option value="ar">🇵🇸 عربي</option>
+                            <option value="ja">🇯🇵 日本語</option>
+                            <option value="ko">🇰🇷 한국인</option>
+                            <option value="zh">🇨🇳 中国人</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--<hr style="color: rgb(255, 255, 255);">-->
+            <div id="properties">
+                <div id="addbook">
+                    <h3 data-i18n="add_book">Add Book</h3>
+                    <input class="textbox" id="isbnInput" type="text" placeholder="ISBN..." data-i18n="scan_barcode_hint">
+                    <input class="textbox" id="titleInput" type="text" placeholder="Title..." data-i18n="title_placeholder">
+                    <input class="textbox" id="authorInput" type="text" placeholder="Author..." data-i18n="author_placeholder">
+                    <input class="textbox" id="publisherInput" type="text" placeholder="Publisher..." data-i18n="publisher_placeholder">
+                    <input class="textbox" id="yearInput" type="text" placeholder="Year..." data-i18n="year_placeholder">
+                    <input class="textbox" id="countInput" type="text" placeholder="Count..." data-i18n="count_placeholder">
+                    <input class="textbox" id="shelfNumberInput" type="text" placeholder="Shelf Number..." data-i18n="shelfNumber_placeholder">
+                    <input class="textbox" id="inventoryInput" type="text" placeholder="Inventory Number..." data-i18n="inventory_placeholder">
+                    <select class="textbox" id="categoryInput" data-i18n-placeholder="category_placeholder">
+                        <option value="" data-i18n="select_category">Select Category...</option>
+                        <option value="Fiction" data-i18n="cat_fiction">Fiction</option>
+                        <option value="Non-Fiction" data-i18n="cat_nonfiction">Non-Fiction</option>
+                        <option value="Science" data-i18n="cat_science">Science</option>
+                        <option value="History" data-i18n="cat_history">History</option>
+                        <option value="Biography" data-i18n="cat_biography">Biography</option>
+                        <option value="Children" data-i18n="cat_children">Children</option>
+                        <option value="Reference" data-i18n="cat_reference">Reference</option>
+                        <option value="Other" data-i18n="cat_other">Other</option>
+                    </select>
+                    <div class="btnHolder">
+                        <button id="saveButton" class="btn" type="button" data-i18n="add_button">Add</button>
+                        <button id="clearButton" class="btn" type="button" data-i18n="clear_button">Clear</button>
+                    </div>
+                </div>
+                <div id="filterSection">
+                    
+                    <h3 data-i18n="filter_books">Filter Books</h3>
+                    <input class="textbox filter-input" id="filterISBN" type="text" placeholder="Search by ISBN..." data-i18n="search_by_isbn">
+                    <input class="textbox filter-input" id="filterTitle" type="text" placeholder="Search by title..." data-i18n="search_by_title">
+                    <input class="textbox filter-input" id="filterAuthor" type="text" placeholder="Search by author..." data-i18n="search_by_author">
+                    <input class="textbox filter-input" id="filterPublisher" type="text" placeholder="Search by publisher..." data-i18n="search_by_publisher">
+                    <input class="textbox filter-input" id="filterYear" type="text" placeholder="Search by year..." data-i18n="search_by_year">
+                    <input class="textbox filter-input" id="filterShelfNumber" type="text" placeholder="Search by shelf number..." data-i18n="search_by_shelfnumber">
+                    <input class="textbox filter-input" id="filterInventory" type="text" placeholder="Search by inventory..." data-i18n="search_by_inventory">
+                    <select class="textbox filter-input" id="filterCategory" data-i18n-placeholder="filter_by_category">
+                        <option value="" data-i18n="all_categories">All Categories</option>
+                        <option value="Fiction" data-i18n="cat_fiction">Fiction</option>
+                        <option value="Non-Fiction" data-i18n="cat_nonfiction">Non-Fiction</option>
+                        <option value="Science" data-i18n="cat_science">Science</option>
+                        <option value="History" data-i18n="cat_history">History</option>
+                        <option value="Biography" data-i18n="cat_biography">Biography</option>
+                        <option value="Children" data-i18n="cat_children">Children</option>
+                        <option value="Reference" data-i18n="cat_reference">Reference</option>
+                        <option value="Other" data-i18n="cat_other">Other</option>
+                    </select>
+                    <div class="btnHolder">
+                        <button id="clearFiltersButton" class="btn" type="button" data-i18n="clear_filters">Clear Filters</button>
+                    </div>
+                    <div id="filterResults">
+                        <span id="resultCount">Total Books: 0</span>
+                    </div>
+                </div>
+                <div id="lendMenu">
+                    <h3 data-i18n="lend_books">Lend Books</h3>
+                    <span id="selectedBook" data-i18n="not_selected">Not Selected</span>
+                    <input class="textbox" id="toWho" type="text" placeholder="To who..." data-i18n="to_who_placeholder">
+                    <div class="dateHolder">
+                        <span data-i18n="date_label">Date:</span>
+                        <input id="date" type="date">
+                        <button class="btn" id="lendButton" type="button" data-i18n="lend_button">Lend</button>
+                    </div>
+                    <div id="lendList">
+                    </div>
+                </div>
+                <div id="notifications">
+                    <h3 id="notificationsCaption" data-i18n="notifications">Notifications</h3>
+                    <div class="alert" data-i18n="notifications_info">
+                        Your notifications will appear here.
+                    </div>
+                </div>
+                <div id="exportMenu">
+                    <h3 data-i18n="export_data">Çıktı Al</h3>
+                    <div class="btnHolderCol">
+                        <button id="exportExcel" class="btn excel-btn" type="button" data-i18n="export_excel">📊 Excel Çıktısı Al</button>
+                        <button id="exportPDF" class="btn pdf-btn" type="button" data-i18n="export_pdf">📄 PDF Çıktısı Al</button>
+                        <button id="exportWord" class="btn word-btn" type="button" data-i18n="export_word">📝 Word Çıktısı Al</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="books">
+            <div id="headers">
+                <span data-i18n="header_title">Title</span>
+                <span data-i18n="header_author">Author</span>
+                <span data-i18n="header_publisher">Publisher</span>
+                <span data-i18n="header_count">Count</span>
+                <span data-i18n="header_year">Year</span>
+                <span data-i18n="header_isbn">ISBN</span>
+                <span data-i18n="header_shelfnumber">Shelf Number</span>
+                <span data-i18n="header_inventory">Inventory</span>
+                <span data-i18n="header_category">Category</span>
+                <span data-i18n="header_actions">Actions</span>
+            </div>
+            <div class="content">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
