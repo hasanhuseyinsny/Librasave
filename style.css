@@ -1,0 +1,1035 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: "Poppins";
+    background-color: rgb(51, 42.5, 51);
+    color: white;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+}
+#books {
+    width: 100%;
+    margin: 5px 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+}
+.book{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(40, 40, 40);
+    margin: 5px;
+    padding: 10px;
+    border: 1px white solid;
+    border-radius: 20px;
+}
+.book div{
+    margin: 10px;
+    width: 115px;
+    display: flex;
+    justify-content: center;
+}
+#headers{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#headers span{
+    margin: 10px;
+    width: 110px;
+}
+header{
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+}
+#panel{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgb(25, 25, 25);
+}
+#topbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#account{
+    display: flex;
+    flex-direction: row;
+}
+#accountinfo{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    padding: 5px;
+}
+#logo{
+    margin-right: auto;
+}
+#addbook{
+    display: flex;
+    flex-direction: column;
+    width: 40vh;
+    gap: 5px;
+}
+.textbox{
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: large;
+    /*border: 1px white solid;*/
+    border-radius: 5px;
+}
+.btnHolder{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.btn{
+    background-color: blueviolet;
+    color: white;
+    border: 1px solid white;
+}
+.btn:hover{
+    background-color: rgb(108, 40, 172);
+}
+#saveButton{
+    background-color: blue;
+    width: 100px;
+    font-size: medium;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#saveButton:hover{
+    background-color: rgb(0, 0, 200);
+}
+#clearButton{
+    background-color: green;
+    width: 100px;
+    font-size: medium;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#clearButton:hover{
+    background-color: rgb(0, 100, 0);
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    font-size: large;
+}
+#properties{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+#notifications{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    padding: 10px;
+    overflow-y: auto;
+    height: 30vh;
+}
+#notificationsCaption{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.alert{
+    display: flex;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: small;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.grey{
+    background-color: grey;
+}
+.blue{
+    background-color: blue;
+}
+.orange{
+    background-color: orange;
+}
+.edit{
+    height: 100%;
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgb(51, 42.5, 51);
+    border: 1px solid yellow;
+    color: yellow;
+    border-radius: 5px;
+}
+.edit:hover{
+    background-color: rgb(60, 60, 60);
+}
+.delete{
+    height: 100%;
+    font-weight: bold;
+    background-color: rgb(51, 42.5, 51);
+    border: 1px solid red;
+    color: red;
+    font-size: medium;
+    border-radius: 5px;
+}
+.delete:hover{
+    background-color: rgb(60, 60, 60);
+}
+.lend{
+    height: 100%;
+    font-weight: bold;
+    background-color: rgb(51, 42.5, 51);
+    border: 1px solid green;
+    color: green;
+    font-size: medium;
+    border-radius: 5px;
+}
+.lend:hover{
+    background-color: rgb(60, 60, 60);
+}
+.actions{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* style.css dosyanızın sonuna ekleyin */
+
+#filterSection{
+    display: flex;
+    flex-direction: column;
+    width: 40vh;
+    gap: 5px;
+}
+
+.textbox:focus{
+    outline: 2px solid blueviolet;
+}
+
+#clearFiltersButton{
+    background-color: orange;
+    width: 150px;
+    font-size: medium;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#clearFiltersButton:hover{
+    background-color: rgb(200, 120, 0);
+}
+
+#filterResults{
+    margin-top: 5px;
+    padding: 4px;
+    background-color: rgb(40, 40, 40);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.book.hidden{
+    display: none;
+}
+
+.book.visible{
+    display: flex;
+}
+#login{
+    border-radius: 5px;
+}
+#lendMenu{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    gap: 5px;
+}
+.dateHolder{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+#lendButton{
+    background-color: green;
+    width: 100px;
+    font-size: medium;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#lendList{
+    display: flex;
+    height: 20vh;
+    flex-direction: column;
+    font-size: smaller;
+    overflow-y: auto;
+}
+.lent{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    gap: 10px;
+    background-color: rgb(40, 40, 40);
+    border: 1px white solid;
+    border-radius: 10px;
+}
+.received{
+    font-weight: bold;
+    border-radius: 5px;
+}
+#pp{
+    border-radius: 25px;
+}
+
+
+#languageSelector {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#languageSelect {
+    background-color: rgb(40, 40, 40);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: small;
+    cursor: pointer;
+    font-family: "Poppins";
+}
+
+#languageSelect:hover {
+    background-color: rgb(60, 60, 60);
+}
+
+#languageSelect option {
+    background-color: rgb(40, 40, 40);
+    color: white;
+}
+/*Export*/
+#exportMenu {
+    display: flex;
+    flex-direction: column;
+    width: 30vh;
+    gap: 5px;
+}
+
+.excel-btn {
+    background-color: #217346;
+    font-size: large;
+    border-radius: 5px;
+    font-weight: bold;
+    height: 50px;
+}
+
+.excel-btn:hover {
+    background-color: #1a5c37;
+}
+
+.pdf-btn {
+    background-color: #d32f2f;
+    font-size: large;
+    border-radius: 5px;
+    font-weight: bold;
+    height: 50px;
+}
+
+.pdf-btn:hover {
+    background-color: #b71c1c;
+}
+.btnHolderCol{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.word-btn {
+    background-color: #2B579A;
+    font-size: large;
+    border-radius: 5px;
+    height: 50px;
+    font-weight: bold;
+}
+
+.word-btn:hover {
+    background-color: #1e3f6d;
+}
+select.textbox {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+select.textbox option {
+    background-color: rgb(40, 40, 40);
+    color: white;
+    padding: 5px;
+}
+.book .inventory {
+    width: 120px;
+}
+.book .category {
+    width: 120px;
+}
+.book .shelfNumber {
+    width: 60px;
+    display: flex;
+}
+
+#isbnInput {
+    border: 2px solid blueviolet;
+    transition: all 0.3s;
+}
+
+#isbnInput:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* Barkod okuyucu aktif göstergesi */
+#isbnInput.scanning {
+    border-color: orange;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { border-color: orange; }
+    50% { border-color: #ff6600; }
+}
+
+/*
+==================================
+        Landing Page Styles
+==================================
+*/
+
+#logoHeader {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+#header_desc{
+    font-style: italic;
+    font-size: small;
+    color: rgb(200, 200, 200);
+}
+#question{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: larger;
+    margin-inline: 100px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgb(40, 40, 40);
+    border: 1px white solid;
+    border-radius: 10px;
+    gap: 20px;
+}
+#getStartedBtn{
+    font-weight: bold;
+    background-color: rgb(51, 42.5, 51);
+    border: 1px solid green;
+    color: green;
+    font-size: large;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+}
+#getStartedBtn:hover{
+    background-color: rgb(60, 60, 60);
+}
+#navbar{
+    display: flex;
+    flex-direction: row;
+    height: 8vh;
+    
+}
+#dropdown{
+    background-color: rgb(25, 25, 25);
+    list-style-type: none;
+    position: fixed;
+    width: 100%;
+}
+#dropdown li{
+    display: inline-block;
+    padding: 10px;
+}
+#dropdown li a{
+    font-weight: 100;
+    font-size: larger;
+    text-decoration: none;
+    color: darkgrey;
+}
+#dropdown li a:hover{
+    color: white;
+}
+#issuesandsolutions{
+    display: flex;
+    flex-direction: column;
+    margin-inline: 50px;
+    margin-top: 50px;
+}
+.issue{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    width: 600px;
+    border: 1px solid red;
+    border-radius: 20px;
+    background-color: rgb(51, 25, 25); /*rgb(51, 0, 0)*/
+}
+.issueheader{
+    display: flex;
+    flex-direction: row;
+}
+.issuetext{
+    margin-right: 10px;
+}
+.solution{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    width: 600px;
+    border: 1px solid green;
+    border-radius: 20px;
+    background-color: rgb(25, 51, 25); /*rgb(0, 51, 0)*/
+}
+.solutionheader{
+    display: flex;
+    flex-direction: row;
+}
+.solutiontext{
+    margin-right: 10px;
+}
+#features{
+    display: flex;
+    flex-direction: column;
+    margin-inline: 50px;
+    margin-top: 20px;
+}
+.feature{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 600px;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    background-color: rgb(25, 25, 51); /*rgb(0, 51, 0)*/
+}
+.featureholder{
+    display: flex;
+    flex-direction: row;
+}
+.issuesandsolutionsholder{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+#sampleImage{
+    display: flex;
+}
+.visuals{
+    margin: 5px;
+}
+#about{
+    display: flex;
+    flex-direction: column;
+    margin-inline: 50px;
+    margin-top: 20px;
+}
+#us{
+    display: flex;
+    flex-direction: row;
+}
+#cv{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 600px;
+    padding: 10px;
+    gap: 10px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    background-color: rgb(51, 25, 51); /*rgb(0, 51, 0)*/
+}
+#photo{
+    margin: 10px;
+}
+#companyLogo{
+    margin: 10px;
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(25, 25, 25);
+    height: 50px;
+    color: darkgrey;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATION
+   ======================================== */
+
+/* Tablet ve küçük ekranlar için (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    #properties {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #addbook,
+    #filterSection,
+    #lendMenu,
+    #exportMenu {
+        width: 100%;
+        max-width: none;
+    }
+
+    #topbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #account {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #languageSelector {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Mobil cihazlar için (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    #books::after {
+        content: "← Kaydırın →";
+        display: block;
+        text-align: center;
+        padding: 10px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: small;
+        animation: fadeOut 3s forwards;
+    }
+    
+    @keyframes fadeOut {
+        0%, 50% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    .book .inventory { 
+        width: 100px; 
+    }
+    .book .category { 
+        width: 100px; 
+    }
+    .book .shelfNumber { 
+        width: 50px; 
+    }
+
+    /* Container düzenleme */
+    #container {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Topbar düzenleme */
+    #topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 5px;
+    }
+
+    #logo img {
+        width: 150px;
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    #account {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #accountinfo {
+        font-size: x-small;
+    }
+
+    #pp {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Properties bölümü */
+    #properties {
+        flex-direction: column;
+        padding: 10px 5px;
+    }
+
+    #addbook,
+    #filterSection,
+    #lendMenu,
+    #exportMenu,
+    #notifications {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* ÇÖZÜM: Kitap listesi için özel düzenleme */
+    #books {
+        width: 100%;
+        margin: 5px 0;
+        padding: 0;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Scroll container için wrapper */
+    #books > * {
+        min-width: fit-content;
+    }
+
+    /* Headers mobil düzenleme */
+    #headers {
+        display: flex;
+        flex-wrap: nowrap;
+        min-width: max-content;
+        padding: 10px 5px;
+        font-size: small;
+        font-weight: bold;
+        background-color: rgba(40, 40, 40, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    #headers span {
+        flex-shrink: 0;
+        padding: 5px;
+        text-align: center;
+    }
+
+    /* Mobilde kolon genişlikleri - daha dengeli */
+    #headers span:nth-child(1) { width: 140px; } /* Title */
+    #headers span:nth-child(2) { width: 120px; } /* Author */
+    #headers span:nth-child(3) { width: 120px; } /* Publisher */
+    #headers span:nth-child(4) { width: 60px; }  /* Count */
+    #headers span:nth-child(5) { width: 60px; }  /* Year */
+    #headers span:nth-child(6) { width: 100px; } /* ISBN */
+    #headers span:nth-child(7) { width: 60px; } /* Shelf Number */
+    #headers span:nth-child(8) { width: 100px; } /* Inventory */
+    #headers span:nth-child(9) { width: 100px; } /* Category */
+    #headers span:nth-child(10) { width: 180px; } /* Actions (9. sıraya kaydı) */
+
+    /* Content container */
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0;
+        padding: 5px;
+        width: 100%;
+    }
+
+    /* Book card mobil düzenleme */
+    .book {
+        display: flex;
+        flex-wrap: nowrap;
+        min-width: max-content;
+        font-size: small;
+        padding: 8px 5px;
+        margin: 3px 0;
+        border-radius: 10px;
+    }
+
+    .book > div {
+        flex-shrink: 0;
+        padding: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* Aynı genişlikler book divleri için */
+    .book .title { width: 140px; }
+    .book .author { width: 120px; }
+    .book .publisher { width: 120px; }
+    .book .count { 
+        width: 60px; 
+        text-align: center;
+    }
+    .book .year { 
+        width: 60px; 
+        text-align: center;
+    }
+    .book .isbn { width: 100px; }
+    .book .actions { 
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    /* Button düzenlemeleri */
+    .btnHolder {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #saveButton,
+    #clearButton,
+    #clearFiltersButton,
+    #lendButton {
+        width: 100%;
+    }
+
+    .btnHolderCol button {
+        width: 100%;
+    }
+
+    /* Actions düğmeleri */
+    .actions button {
+        font-size: x-small;
+        padding: 6px 8px;
+        width: 100%;
+        min-height: 32px;
+    }
+
+    /* Notifications */
+    #notifications {
+        height: auto;
+        max-height: 30vh;
+    }
+
+    /* Lend List */
+    #lendList {
+        height: auto;
+        max-height: 25vh;
+    }
+
+    .lent {
+        flex-direction: column;
+        font-size: x-small;
+    }
+
+    /* Export menu */
+    .excel-btn,
+    .pdf-btn,
+    .word-btn {
+        height: 45px;
+        font-size: medium;
+    }
+
+    /* Scrollbar styling için */
+    #books::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    #books::-webkit-scrollbar-track {
+        background: rgb(40, 40, 40);
+        border-radius: 10px;
+    }
+
+    #books::-webkit-scrollbar-thumb {
+        background: blueviolet;
+        border-radius: 10px;
+    }
+
+    #books::-webkit-scrollbar-thumb:hover {
+        background: rgb(108, 40, 172);
+    }
+}
+
+/* Küçük mobil cihazlar için (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    #panel {
+        padding: 5px;
+    }
+
+    #logo img {
+        width: 120px;
+    }
+
+    .book .inventory { 
+        width: 90px; 
+    }
+    .book .category { 
+        width: 90px; 
+    }
+    .book .shelfNumber { 
+        width: 40px; 
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    #account {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    #pp {
+        width: 40px;
+        height: 40px;
+    }
+
+    .textbox {
+        font-size: medium;
+        padding: 8px;
+    }
+
+    #languageSelect {
+        font-size: x-small;
+        padding: 3px 5px;
+    }
+
+    /* Daha küçük kolonlar */
+    #headers span:nth-child(1) { width: 120px; }
+    #headers span:nth-child(2) { width: 100px; }
+    #headers span:nth-child(3) { width: 100px; }
+    #headers span:nth-child(4) { width: 50px; }
+    #headers span:nth-child(5) { width: 50px; }
+    #headers span:nth-child(6) { width: 90px; }
+    #headers span:nth-child(7) { width: 50px; }
+    #headers span:nth-child(8) { width: 100px; }
+    #headers span:nth-child(9) { width: 80px; }
+    #headers span:nth-child(10) { width: 120px; }
+
+    .book .title { width: 120px; }
+    .book .author { width: 100px; }
+    .book .publisher { width: 100px; }
+    .book .count { width: 50px; }
+    .book .year { width: 50px; }
+    .book .isbn { width: 90px; }
+    .book .actions { width: 160px; }
+
+    .actions button {
+        font-size: xx-small;
+        padding: 5px;
+        min-height: 28px;
+    }
+
+    /* Daha kompakt görünüm */
+    #addbook,
+    #filterSection,
+    #lendMenu,
+    #exportMenu {
+        gap: 3px;
+    }
+
+    .alert {
+        font-size: x-small;
+    }
+
+    .excel-btn,
+    .pdf-btn,
+    .word-btn {
+        height: 40px;
+        font-size: small;
+    }
+}
+
+/* Landscape (yatay) mobil görünüm */
+@media screen and (max-width: 915px) and (orientation: landscape) {
+    #properties {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #addbook,
+    #filterSection {
+        width: 48%;
+    }
+
+    #lendMenu,
+    #exportMenu {
+        width: 48%;
+    }
+
+    #notifications {
+        width: 100%;
+    }
+}
+
+/* Lend list ve notifications için kaydırma */
+#lendList::-webkit-scrollbar,
+#notifications::-webkit-scrollbar {
+    width: 6px;
+}
+
+#lendList::-webkit-scrollbar-track,
+#notifications::-webkit-scrollbar-track {
+    background: rgb(40, 40, 40);
+    border-radius: 10px;
+}
+
+#lendList::-webkit-scrollbar-thumb,
+#notifications::-webkit-scrollbar-thumb {
+    background: blueviolet;
+    border-radius: 10px;
+}
+
+/* Touch cihazlar için düğme boyutları */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .actions button {
+        min-height: 38px;
+        padding: 8px;
+    }
+}
+
+/* BONUS: Scroll indicator */
+@media screen and (max-width: 768px) {
+    
+}
