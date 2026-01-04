@@ -211,7 +211,7 @@ function editBookByID(id){
         countInput.value = bookToEdit.count;
         yearInput.value = bookToEdit.year;
         isbnInput.value = bookToEdit.isbn;
-        shelfNumber.value = bookToEdit.shelfNumber;
+        shelfNumberInput.value = bookToEdit.shelfNumber;
         inventoryInput.value = bookToEdit.inventory || '';
         categoryInput.value = bookToEdit.category || '';
 
