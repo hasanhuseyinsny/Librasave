@@ -86,6 +86,15 @@ onAuthStateChanged(auth, (user) =>{
         updateUserProfile(user);
         const uid = user.uid;
 
+        if(!hasWelcomeEmailBeenSent(uid)) {
+            sendWelcomeEmail(user).then(success => {
+                if(success) {
+                    markWelcomeEmailAsSent(uid);
+                    console.log('Welcome email sent to:', user.email);
+                }
+            });
+        }
+        
         setTimeout(() => {
             if(window.loadUserDataFromFirestore){
                 window.loadUserDataFromFirestore(user.uid);
@@ -113,6 +122,51 @@ onAuthStateChanged(auth, (user) =>{
         }, 100);
     }
 });
+
+(function() {
+    emailjs.init("8zB91B3uWNCL6rMNo");
+})();
+
+async function sendWelcomeEmail(user) {
+    const templateParams = {
+        user_name: user.displayName || 'Kullanıcı',
+        user_email: user.email,
+        signup_date: new Date().toLocaleDateString('tr-TR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+    };
+
+    try {
+        const response = await emailjs.send(
+            'librasave',
+            'template_anfkzt7',
+            templateParams
+        );
+        
+        console.log('Welcome email sent successfully!', response.status, response.text);
+        return true;
+    } catch (error) {
+        console.error('Failed to send welcome email:', error);
+        return false;
+    }
+}
+
+function hasWelcomeEmailBeenSent(userId) {
+    const sentEmails = JSON.parse(localStorage.getItem('welcomeEmailsSent') || '[]');
+    return sentEmails.includes(userId);
+}
+
+function markWelcomeEmailAsSent(userId) {
+    const sentEmails = JSON.parse(localStorage.getItem('welcomeEmailsSent') || '[]');
+    if (!sentEmails.includes(userId)) {
+        sentEmails.push(userId);
+        localStorage.setItem('welcomeEmailsSent', JSON.stringify(sentEmails));
+    }
+}
 
 window.auth = auth;
 window.db = db;
