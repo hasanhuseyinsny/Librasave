@@ -2,22 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebas
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-//import { firebaseConfig } from './config.js';
+import { firebaseConfig } from './config.js';
 
 const loginButton = document.querySelector("#login");
 const userNameEl = document.querySelector("#userName");
 const userEmailEl = document.querySelector("#userEmail");
 const userProfilePictureEl = document.querySelector("#pp");
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDJNv0oR8idDU5ivkeetoaN6HevE9K_rIw",
-    authDomain: "librasave-e16e4.firebaseapp.com",
-    projectId: "librasave-e16e4",
-    storageBucket: "librasave-e16e4.firebasestorage.app",
-    messagingSenderId: "500379972592",
-    appId: "1:500379972592:web:3cb61d897a975c21392335",
-    measurementId: "G-VKFVV3MS51"
-};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
