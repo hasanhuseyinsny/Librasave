@@ -709,7 +709,7 @@ function exportToExcel() {
         [window.t('header_count')]: book.count,
         [window.t('header_year')]: book.year,
         [window.t('header_isbn')]: book.isbn,
-        [window.t('header_shelfNumber')]: book.shelfNumber,
+        [window.t('header_shelfnumber')]: book.shelfNumber,
         [window.t('header_inventory')]: book.inventory || '-', // EKLE
         [window.t('header_category')]: book.category ? window.t('cat_' + book.category.toLowerCase().replace('-', '').replace(' ', '')) : '-' // EKLE
     }));
@@ -756,7 +756,7 @@ function exportToPDF() {
     let countText = window.t ? window.t("header_count") : "Count"
     let yearText = window.t ? window.t("header_year") : "Year"
     let isbnText = window.t ? window.t("header_isbn") : "ISBN"
-    let shelfNumberText = window.t ? window.t("header_shelfNumber") : "Shelf Number"
+    let shelfNumberText = window.t ? window.t("header_shelfnumber") : "Shelf Number"
     let inventoryText = window.t ? window.t("header_inventory") : "Inventory"
     let categoryText = window.t ? window.t("header_category") : "Category"
     doc.setFontSize(10);
@@ -839,7 +839,7 @@ async function exportToWord() {
                         width: { size: 9, type: WidthType.PERCENTAGE }
                     }),
                     new TableCell({
-                        children: [new Paragraph({ text: window.t('header_shelfNumber'), bold: true })],
+                        children: [new Paragraph({ text: window.t('header_shelfnumber'), bold: true })],
                         width: { size: 9, type: WidthType.PERCENTAGE }
                     }),
                     new TableCell({
