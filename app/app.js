@@ -764,13 +764,13 @@ function exportToPDF() {
 
     const tableData = books.map(book => [
         book.title, book.author, book.publisher,
-        book.count, book.year, book.isbn,, book.shelfNumber,
+        book.count, book.year, book.isbn, book.shelfNumber,
         book.inventory || '-',
         book.category ? (window.t ? window.t('cat_' + book.category.toLowerCase().replace('-', '').replace(' ', '')) : book.category) : '-'
     ]);
 
     doc.autoTable({
-        head: [[titleText, authorText, publisherText, yearText, countText, isbnText, inventoryText, categoryText]],
+        head: [[titleText, authorText, publisherText, yearText, countText, isbnText, shelfNumberText, inventoryText, categoryText]],
         body: tableData,
         startY: 30,
         styles: { font: 'helvetica', fontSize: 9, cellPadding: 3 },
